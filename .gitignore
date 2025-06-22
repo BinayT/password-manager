@@ -1,0 +1,54 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.out/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*.local
+.env.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Test snapshots
+*.snap
+
+# Optional: Docker
+docker-compose.override.yml
+
+# Optional: database files (if SQLite or dev DB)
+*.sqlite
+*.sqlite3
+*.db
+
+# Optional: knex migration config output
+.knex/
+
+# Mac-specific files
+.AppleDouble
+.LSOverride
+
+# Windows-specific files
+ehthumbs.db
