@@ -14,9 +14,14 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
   const { email, password, username } = req.body;
 
   try {
-    const existing = await db('users').where({ email }).first();
-    if (existing) {
+    const existingEmail = await db('users').where({ email }).first();
+    const existingUsername = await db('users').where({ username }).first();
+    if (existingEmail) {
         throw createApiError('Email already in use', 409);
+    }
+
+    if (existingUsername) {
+        throw createApiError('Username already in use', 409);
     }
 
     const hashedPassword = await hashPassword(password, 12);
