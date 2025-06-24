@@ -1,15 +1,20 @@
 import type { ZodError } from 'zod';
 
-export function zodValidationError( error: ZodError ) {
+export function zodValidationError(error: ZodError) {
   const flattened = error.flatten();
 
-  return {
-    type: 'ZOD_VALIDATION_ERROR',
-    statusCode: 400,
-    message: 'Validation failed',
-    errors: {
-      fieldErrors: flattened.fieldErrors,
-      formErrors: flattened.formErrors,
-    },
+  const err = new Error('Validation failed') as Error & {
+    statusCode: number;
+    type: string;
+    errors: any;
   };
+
+  err.statusCode = 400;
+  err.type = 'ZOD_VALIDATION_ERROR';
+  err.errors = {
+    fieldErrors: flattened.fieldErrors,
+    formErrors: flattened.formErrors,
+  };
+
+  return err;
 }

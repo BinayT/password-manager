@@ -15,28 +15,29 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
   const { email, password } = req.body;
 
   try {
-    const userExists = await db('users').where({ email }).first();
+    const user = await db('users').where({ email }).first();
     
-    if (!userExists) {
+    if (!user) {
         throw createApiError('Invalid credentials.', 401);
     }
 
-    const userHashedPassword = userExists?.password;
+    const userHashedPassword = user?.password;
     const isPasswordCorrrect =  await comparePassword(password, userHashedPassword);
     
     if(!isPasswordCorrrect){
         throw createApiError('Invalid credentials.', 401);
     }
 
-    const token = signJwt({userId: userExists.id});
+    const {password: userPassword, ...userWithoutPassword} = user;
+    const token = signJwt(userWithoutPassword);
     
     res.status(201).json({
       message: 'User Logged In successfully',
       token,
       user: {
-        id: userExists.id,
-        email: userExists.email,
-        username: userExists.username || null,
+        id: user.id,
+        email: user.email,
+        username: user.username || null,
       },
     });
 

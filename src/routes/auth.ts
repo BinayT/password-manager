@@ -4,7 +4,7 @@ import { loginUser } from '../controllers/loginUser.ts';
 
 const router = Router();
 
-router.post('/me', loginUser);
+router.post('/login', loginUser);
 router.post('/register', registerUser);
 
 export default router;

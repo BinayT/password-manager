@@ -1,4 +1,3 @@
-import { error } from 'console';
 import type { ErrorRequestHandler } from 'express';
 
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
