@@ -1,9 +1,9 @@
-import { createApiError } from '@errors/apiError.ts';
+import { createApiError } from '@errors/apiError';
 
-import db from '@db/knex.ts';
+import db from '@db/knex';
 
-import { comparePassword } from '@utils/hash.ts';
-import { signJwt } from '@utils/signJwt.ts';
+import { comparePassword } from '@utils/hash';
+import { signJwt } from '@utils/signJwt';
 
 export const loginUser = async (email: string, password: string) => {
     const user = await db('users').where({ email }).first();

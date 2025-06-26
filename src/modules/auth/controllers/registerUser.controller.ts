@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { zodValidationError } from '@errors/zodValidationError.ts';
-import { registerUser } from '../service.ts';
-import { registerSchema } from '../schema.ts';
+import { zodValidationError } from '@errors/zodValidationError';
+import { registerUser } from '../service';
+import { registerSchema } from '../schema';
 
 export const registerUserController = async (req: Request, res: Response, next: NextFunction) => {
     

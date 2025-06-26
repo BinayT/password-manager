@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express';
-import { verifyJWT } from '@utils/signJwt.ts';
+import { verifyJWT } from '@utils/signJwt';
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization;

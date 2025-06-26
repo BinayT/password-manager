@@ -1,4 +1,4 @@
-import { registerUser } from './service/registerUser.ts';
-import { loginUser } from './service/loginUser.ts';
+import { registerUser } from './service/registerUser';
+import { loginUser } from './service/loginUser';
 
 export { registerUser, loginUser };

@@ -1,4 +1,4 @@
-import { registerUserController } from './controllers/registerUser.controller.ts';
-import { loginUserController } from './controllers/loginUser.controller.ts';
+import { registerUserController } from './controllers/registerUser.controller';
+import { loginUserController } from './controllers/loginUser.controller';
 
 export { registerUserController,loginUserController };

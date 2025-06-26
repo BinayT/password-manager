@@ -1,4 +1,4 @@
-import {loginSchema} from './schema/loginSchema.ts';
-import {registerSchema} from './schema/registerSchema.ts';
+import {loginSchema} from './schema/loginSchema';
+import {registerSchema} from './schema/registerSchema';
 
 export {loginSchema,registerSchema};

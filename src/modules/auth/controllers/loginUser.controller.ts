@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { loginUser } from '../service.ts';
-import { zodValidationError } from '@errors/zodValidationError.ts';
-import { loginSchema } from '../schema.ts';
+import { loginUser } from '../service';
+import { zodValidationError } from '@errors/zodValidationError';
+import { loginSchema } from '../schema';
 
 export const loginUserController = async (req: Request, res: Response, next: NextFunction) => {
     

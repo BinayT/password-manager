@@ -1,6 +1,6 @@
-import { createApiError } from '@errors/apiError.ts';
-import { hashPassword } from '@utils/hash.ts';
-import db from '@db/knex.ts';
+import { createApiError } from '@errors/apiError';
+import { hashPassword } from '@utils/hash';
+import db from '@db/knex';
 
 export const registerUser = async (email: string, password: string, username: string) => {
     const existingEmail = await db('users').where({ email }).first();
