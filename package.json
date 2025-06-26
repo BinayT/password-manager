@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Pass vault backend project with Node and express and TS as programming langauge",
   "main": "main.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/index.ts",
+    "start": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "migrate:make": "ts-node -r tsconfig-paths/register src/scripts/knex.ts migrate:make",
+    "migrate:latest": "ts-node -r tsconfig-paths/register src/scripts/knex.ts migrate:latest",
+    "migrate:rollback": "ts-node -r tsconfig-paths/register src/scripts/knex.ts migrate:rollback",
     "test": "vitest",
-    "test:watch": "vitest --watch",
-    "migrate:make": "node --loader ts-node/esm src/scripts/knex.ts migrate:make",
-    "migrate:latest": "node --loader ts-node/esm src/scripts/knex.ts migrate:latest",
-    "migrate:rollback": "node --loader ts-node/esm src/scripts/knex.ts migrate:rollback"
+    "test:watch": "vitest --watch"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "knex": "^3.1.0",
     "nodemon": "^3.1.10",
     "pg": "^8.16.2",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^3.25.67"
   },
   "devDependencies": {
