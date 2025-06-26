@@ -13,7 +13,7 @@ export function verifyJWT<T = any>(token: string): T | null {
     const decoded = jwt.verify(token, JWT_SECRET) as T;
     return decoded;
   } catch (error) {
-    console.error('Invalid JWT:', error);
+    console.warn('Invalid JWT:', error);
     return null;
   }
 }

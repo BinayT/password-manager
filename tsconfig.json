@@ -8,7 +8,6 @@
     "strict": true,
     "outDir": "./dist",
     "baseUrl": "src",
-    "types": ["node"],
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "paths": {
@@ -22,5 +21,8 @@
       "@types/*": ["types/*"],
       "@utils/*": ["utils/*"],
     },
-  }
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": ["node", "express"],
+  },
+  "include": ["src/**/*"]
 }
