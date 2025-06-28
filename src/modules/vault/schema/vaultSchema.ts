@@ -6,4 +6,4 @@ export const vaultSchema = z.object({
     password: z.string().optional(),
     notes: z.string().optional(),
     url: z.string().optional(),
-});
+}).strict();

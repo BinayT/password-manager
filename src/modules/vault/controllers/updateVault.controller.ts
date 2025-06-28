@@ -18,14 +18,14 @@ export const updateVaultController = async (
       res.status(401).json({ message: 'Unauthorized' });
       return;
     }
-
+    
     const result = vaultSchema.safeParse(req.body);
 
     if(!result.success) {
         throw zodValidationError(result.error);
     }
     
-    const vault = await updateVault(vaultId, result.data);
+    const vault = await updateVault(vaultId, userId , result.data);
     res.status(200).json({ vault });
   } catch (err) {
     next(err);
