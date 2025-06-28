@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from 'express';
 
 import { loginUser } from '../service';
-import { zodValidationError } from '@errors/zodValidationError';
+import { zodValidationError } from '@/errors/zodValidationError';
 import { loginSchema } from '../schema';
 
 export const loginUserController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

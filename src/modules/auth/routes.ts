@@ -3,7 +3,9 @@ import { registerUserController, loginUserController } from './controller';
 
 const authRoutes = Router();
 
-authRoutes.post('/register', registerUserController);
-authRoutes.post('/login', loginUserController);
+authRoutes
+    .post('/register', registerUserController)
+    .post('/login', loginUserController);
+
 
 export default authRoutes;

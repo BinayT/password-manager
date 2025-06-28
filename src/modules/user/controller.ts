@@ -1,3 +1,4 @@
 import { getMeController } from './controller/getMe.controller';
+import { updateUserController } from './controller/updateUser.controller';
 
-export { getMeController };
+export { getMeController, updateUserController };

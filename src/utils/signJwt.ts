@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { User } from '../types/User';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'super-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 const JWT_EXPIRES_IN = '1h';
 
 export function signJwt(user: User): string {

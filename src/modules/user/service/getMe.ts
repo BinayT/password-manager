@@ -1,4 +1,4 @@
-import db from '@db/knex';
+import db from '@/db/knex';
 
 export const getUserById = async (id: string) => {
   const user = await db('users').where({ id }).first();

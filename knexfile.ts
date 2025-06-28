@@ -18,6 +18,13 @@ const config: { [key: string]: Knex.Config } = {
       directory: './src/db/migrations',
     },
   },
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: ':memory:',
+    },
+    useNullAsDefault: true,
+  },
 };
 
 export default config;

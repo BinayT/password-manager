@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { zodValidationError } from '@errors/zodValidationError';
+import { zodValidationError } from '@/errors/zodValidationError';
 import { registerUser } from '../service';
 import { registerSchema } from '../schema';
 

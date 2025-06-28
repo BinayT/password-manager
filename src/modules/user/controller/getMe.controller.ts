@@ -1,5 +1,5 @@
 import type { Response, NextFunction } from 'express';
-import type { AuthenticatedRequest } from 'express-auth'; // update the path as needed
+import type { AuthenticatedRequest } from 'express-auth';
 
 import { getUserById } from '../service';
 

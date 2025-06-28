@@ -11,15 +11,7 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "paths": {
-      "@app/*": ["app/*"],
-      "@db/*": ["db/*"],
-      "@errors/*": ["errors/*"],
-      "@moduleResolution/*": ["moduleResolution/*"],
-      "@modules/*": ["modules/*"],
-      "@scripts/*": ["scripts/*"],
-      "@middlewares/*": ["middlewares/*"],
-      "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"],
+      "@/*": ["./*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "types": ["node", "express"],
