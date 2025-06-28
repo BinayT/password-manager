@@ -1,4 +1,4 @@
-import type { Request, Response, NextFunction, RequestHandler } from 'express';
+import type { Response, NextFunction, RequestHandler } from 'express';
 import type { AuthenticatedRequest } from 'express-auth';
 
 const withAuth = (handler: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<void> ): RequestHandler => {

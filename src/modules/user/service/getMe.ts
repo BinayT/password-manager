@@ -10,5 +10,7 @@ export const getUserById = async (id: string) => {
   }
 
   delete user.password;
+
+  console.info(`User data retrieved for user. Info: `, user);
   return user;
 };

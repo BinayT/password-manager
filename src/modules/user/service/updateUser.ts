@@ -34,10 +34,6 @@ export const updateUser = async (id: string, data: UpdateUserInput) => {
         }
     }
 
-    console.log('user', user);
-    console.log('data', data);
-    
-
     if (data.password) {
         data.password = await hashPassword(data.password, 12);
     }

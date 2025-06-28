@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from 'express';
 import type { AuthenticatedRequest } from 'express-auth';
 
-import { updateUser } from '../service/updateUser';
-import { userSchema } from '../schema/userSchema';
+import { updateUser } from '../service';
+import { userSchema } from '../schema';
 import { zodValidationError } from '@/errors/zodValidationError';
 
 export const updateUserController = async (
@@ -14,8 +14,8 @@ export const updateUserController = async (
     const userId = req.user?.id;
     
     if (!userId) {
-    res.status(401).json({ message: 'Unauthorized' });
-    return;
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
     }
 
     const result = userSchema.safeParse(req.body);
