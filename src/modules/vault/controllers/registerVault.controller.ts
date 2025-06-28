@@ -13,7 +13,6 @@ export const registerVaultController = async (req: AuthenticatedRequest, res: Re
       throw zodValidationError(result.error);
     }
     const safeParsedData = {...result.data, user_id: userId};
-    console.log(safeParsedData);
     
     try {
       const data = await registerVault(safeParsedData);
