@@ -1,5 +1,6 @@
 import db from '@/db/knex';
 import { UpdateUserInput } from '@/types/User';
+import { getUpdatedTimeStamp } from '@/utils/getUpdatedTimeStamp';
 import { hashPassword } from '@/utils/hash';
 
 export const updateUser = async (id: string, data: UpdateUserInput) => {
@@ -40,7 +41,10 @@ export const updateUser = async (id: string, data: UpdateUserInput) => {
 
     const [updatedUser] = await db('users')
         .where({ id: id })
-        .update(data)
+        .update({
+            ...data,
+            updated_at: getUpdatedTimeStamp(),
+        })
         .returning(['id', 'email', 'username']);
 
     return updatedUser;
