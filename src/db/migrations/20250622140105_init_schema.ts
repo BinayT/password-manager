@@ -22,8 +22,8 @@ export async function up(knex: Knex): Promise<void> {
       .inTable("users")
       .onDelete("CASCADE");
     table.string("title").notNullable();
-    table.string("username"); // login field for the site
-    table.string("password").notNullable(); // encrypted later
+    table.string("username");
+    table.string("password").notNullable();
     table.text("notes");
     table.timestamps(true, true);
   });

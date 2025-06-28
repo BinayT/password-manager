@@ -6,7 +6,10 @@ describe('JWT Token Generation', () => {
     const user = {
       id: '123',
       email: 'test@test.com',
-      username: 'test'
+      username: 'test',
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date()
     }
     const jwtToken = signJwt(user)
     expect(jwtToken).not.toBe(null);
@@ -18,7 +21,10 @@ describe('JWT Token Generation', () => {
     const user = {
       id: '123',
       email: 'test@test.com',
-      username: 'test'
+      username: 'test',
+      password: 'password',
+      created_at: new Date(),
+      updated_at: new Date()
     }
     const token = signJwt(user);
     const decoded = verifyJWT(token) as any;
