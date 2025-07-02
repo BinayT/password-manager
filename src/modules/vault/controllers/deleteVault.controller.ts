@@ -6,7 +6,7 @@ import { deleteVaultById } from '../service';
 export const deleteVaultByIdController = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     const userId = req.user?.id;
     const vaultId = req.params?.id;
-    
+
     try {
       await checkVaultOwnership({vaultId, userId});
       const deletedVault = await deleteVaultById({vaultId});
