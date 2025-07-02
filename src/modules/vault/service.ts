@@ -1,5 +1,5 @@
 import { registerVault } from './service/registerVault';
 import { updateVault } from './service/updateVault';
-import { getVault } from './service/getVault';
+import { checkVaultOwnership } from './service/checkVaultOwnership';
 
-export { registerVault, updateVault, getVault };
+export { registerVault, updateVault, checkVaultOwnership };

@@ -4,6 +4,7 @@ import type { AuthenticatedRequest } from 'express-auth';
 import { updateVault } from '../service';
 import { vaultSchema } from '../schema';
 import { zodValidationError } from '@/errors/zodValidationError';
+import { checkVaultOwnership } from '../service/checkVaultOwnership';
 
 export const updateVaultController = async (
   req: AuthenticatedRequest,
@@ -19,14 +20,16 @@ export const updateVaultController = async (
       return;
     }
     
-    const result = vaultSchema.safeParse(req.body);
+    const result = vaultSchema.safeParse({...req.body, id: vaultId});
 
     if(!result.success) {
         throw zodValidationError(result.error);
     }
-    
-    const vault = await updateVault(vaultId, userId , result.data);
-    res.status(200).json({ vault });
+
+    const vault = await checkVaultOwnership({vaultId, userId});
+
+    const requestedVault = await updateVault(vault?.id , result.data);
+    res.status(200).json({ requestedVault });
   } catch (err) {
     next(err);
   }
