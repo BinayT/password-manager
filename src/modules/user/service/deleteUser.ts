@@ -1,4 +1,5 @@
 import db from '@/db/knex';
+import { logger } from '@/utils/logger';
 
 export const deleteUser = async (id: string) => {
 
@@ -12,7 +13,7 @@ export const deleteUser = async (id: string) => {
 
 
     await db('users').where({ id }).delete();
-    console.info(`User with id ${id} deleted`);
+    logger.info(`User with id ${id} deleted`);
 
     return deletedUser;
 

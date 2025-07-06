@@ -2,6 +2,7 @@ import db from '@/db/knex';
 import { UpdateUserInput } from '@/types/User';
 import { getUpdatedTimeStamp } from '@/utils/getUpdatedTimeStamp';
 import { hashPassword } from '@/utils/hash';
+import { logger } from '@/utils/logger';
 
 export const updateUser = async (id: string, data: UpdateUserInput) => {
     if (Object.keys(data).length === 0) {
@@ -46,6 +47,8 @@ export const updateUser = async (id: string, data: UpdateUserInput) => {
             updated_at: getUpdatedTimeStamp(),
         })
         .returning(['id', 'email', 'username']);
+
+    logger.info(`User updated with id: ${id}`);
 
     return updatedUser;
 

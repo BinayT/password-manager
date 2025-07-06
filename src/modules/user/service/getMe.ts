@@ -1,4 +1,5 @@
 import db from '@/db/knex';
+import { logger } from '@/utils/logger';
 
 export const getUserById = async (id: string) => {
   const user = await db('users').where({ id }).first();
@@ -11,6 +12,7 @@ export const getUserById = async (id: string) => {
 
   delete user.password;
 
-  console.info(`User data retrieved for user. Info: `, user);
+  logger.info(`User data retrieved for user. Info: `, user);
+  
   return user;
 };

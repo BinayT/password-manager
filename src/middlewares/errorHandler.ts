@@ -1,9 +1,19 @@
 import type { ErrorRequestHandler } from 'express';
 
+import { logger } from '@/utils/logger';
+
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (res.headersSent) {
     return next(err);
   }
+
+  logger.error('Unhandled error caught by errorHandler', {
+    path: req.path,
+    method: req.method,
+    error: err.message,
+    statusCode: err.statusCode,
+    stack: err.stack,
+  });
 
   if (err?.type === 'ZOD_VALIDATION_ERROR') {
     res.status(400).json({

@@ -1,7 +1,11 @@
 import db from '@/db/knex';
+
 import { ForbiddenError } from '@/errors/forbiddenError';
 import { NotFoundError } from '@/errors/notFoundError';
+
 import { Vault } from '@/types/Vault';
+
+import { logger } from '@/utils/logger';
 
 type Props = {
     vaultId: string;
@@ -18,7 +22,8 @@ const checkVaultOwnership = async ({vaultId, userId}: Props): Promise<Vault> => 
       if(vault.user_id !== userId) {
         throw new ForbiddenError('Access Denied !');
       }
-      console.info(`Vault data retrieved for user. Function: "checkVaultOwnership" Info: `, vault);
+
+      logger.info(`Vault data retrieved for user. Function: "checkVaultOwnership" Info: `, vault);
 
       return vault;
 }

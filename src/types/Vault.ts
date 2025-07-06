@@ -1,5 +1,4 @@
 interface Vault {
-    id: string;
     title?: string;
     username?: string;
     password?: string;

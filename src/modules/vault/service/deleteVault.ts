@@ -1,5 +1,6 @@
 import db from '@/db/knex';
 import { Vault } from '@/types/Vault';
+import { logger } from '@/utils/logger';
 
 type Props = {
     vaultId: string;
@@ -7,7 +8,7 @@ type Props = {
 
 const deleteVaultById = async ({vaultId}: Props): Promise<Vault> => {
     const [vault] = await db('password_entries').where({ id: vaultId }).delete().returning('*');
-    console.info(`Vault deleted for user. Function: "deleteVaultById" VaultId:`, vaultId);
+    logger.info(`Vault deleted for user. Function: "deleteVaultById" VaultId:`, vaultId);
     return vault;
 }
 

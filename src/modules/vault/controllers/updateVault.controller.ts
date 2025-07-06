@@ -28,7 +28,7 @@ export const updateVaultController = async (
 
     const vault = await checkVaultOwnership({vaultId, userId});
 
-    const requestedVault = await updateVault(vault?.id , result.data);
+    const requestedVault = await updateVault(vaultId , result.data);
     res.status(200).json({ requestedVault });
   } catch (err) {
     next(err);

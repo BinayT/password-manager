@@ -1,6 +1,7 @@
 import { Vault } from "@/types/Vault";
 import db from '@/db/knex';
 import { getUpdatedTimeStamp } from "@/utils/getUpdatedTimeStamp";
+import { logger } from "@/utils/logger";
 
 const updateVault = async (vaultId: string, vault: Vault): Promise<void> => {
 
@@ -17,6 +18,8 @@ const updateVault = async (vaultId: string, vault: Vault): Promise<void> => {
         updated_at: getUpdatedTimeStamp(),
     })
     .returning('*');
+
+    logger.info(`Vault updated for user. Function: "updateVault" VaultId:`, vaultId);
     
     return updatedVault;
 }
