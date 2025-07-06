@@ -1,6 +1,7 @@
 interface Vault {
     title?: string;
     username?: string;
+    email?: string;
     password?: string;
     notes?: string;
     url?: string;

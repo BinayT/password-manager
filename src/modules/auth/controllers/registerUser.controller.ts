@@ -13,7 +13,6 @@ export const registerUserController = async (req: Request, res: Response, next: 
     }
     
     const { email, password, username } = result.data;
-    console.log('heyyy ---');
     
     const [user] = await registerUser(email, password, username);
     res.status(201).json({
