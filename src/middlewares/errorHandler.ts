@@ -12,7 +12,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
     method: req.method,
     error: err.message,
     statusCode: err.statusCode,
-    stack: err.stack,
+    stack: err?.errors || err.stack,
   });
 
   if (err?.type === 'ZOD_VALIDATION_ERROR') {
